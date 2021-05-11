@@ -25,9 +25,7 @@ steps:
     versionSpec: '3.9'
   displayName: '3.9'
 
-- script: | 
-    bandit app.py
-  displayName: 'security check'
+
   
 
 
@@ -36,4 +34,7 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
+- script: | 
+    bandit app.py
+  displayName: 'security check'
 
