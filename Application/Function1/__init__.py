@@ -3,17 +3,11 @@ import logging
 import azure.functions as func
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
+    far = float(input("What is the temperature? "))
 
-    if name:
-        return func.HttpResponse(f"Hello {name}! Welcome to Azure Functions!")
-    else:
-        return func.HttpResponse(f"Hello! Welcome to Azure Functions!")
+# conversion
+f_to_c=((far-32) * (5.0/9.0))
+
+# print the conversion from F to C using 1 decimal place
+print("{:.1f}".format(far) + " degrees F is " + "{:.1f}".format(f_to_c) + " degrees C")
+
